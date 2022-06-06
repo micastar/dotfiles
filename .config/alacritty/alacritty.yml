@@ -1,1 +1,19 @@
-/home/fh/.config/alacritty/alacritty.yml
+#设置字体
+font:
+  normal:
+    family: Sarasa Term SC
+    style: Regular
+
+  bold:
+     family: Sarasa Term SC
+     style: Bold
+
+  italic:
+     family: Sarasa Term SC
+     style: Italic
+  size: 10
+env:
+  WINIT_HIDPI_FACTOR: '1.0'
+import:
+    - /home/fh/git-repos/alacritty/dracula.yml
+

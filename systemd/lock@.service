@@ -1,1 +1,14 @@
-/usr/lib/systemd/system/lock@.service
+[Unit]
+Description=Lock screen on suspend for %i
+Before=sleep.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+User=%i
+Environment=DISPLAY=:0
+Type=forking
+# ExecStartPre= -/usr/bin/pkill -u %u unison
+ExecStart=/home/%i/.config/polybar/scripts/lock.sh
+ExecStartPost=/usr/bin/sleep 2
+
+[Install]
+WantedBy=sleep.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target

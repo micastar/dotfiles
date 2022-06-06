@@ -1,0 +1,9 @@
+# edit and save this file to /etc/pacman.d/hooks/remove_package_cache.hook
+[Trigger]
+Operation = Remove
+Type = Package
+Target = *
+[Action]
+Description = Remove pacman cache...
+When = PostTransaction
+Exec = /usr/bin/paccache -ruk0

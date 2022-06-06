@@ -1,0 +1,10 @@
+# edit and save this file to /etc/pacman.d/hooks/install_update_package.hook
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = *
+[Action]
+Description = Cleaning pacman cache...
+When = PostTransaction
+Exec = /usr/bin/paccache -rk3
