@@ -1,12 +1,14 @@
 #!/bin/env
 
+cd backfile
+
 # .pam_environment
 if [ -f ~/.pam_environment ]
 then
 	cp ~/.pam_environment .
-	echo ".pam_environment already copy"
+	printf ".pam_environment already copy \n"
 else
-	echo ".pam_environment no exist"
+	printf "\e[0;31m .pam_environment no exist \e[0m\n"
 fi
 
 sleep 2
@@ -15,9 +17,9 @@ sleep 2
 if [ -f ~/.xinitrc ]
 then
 	cp ~/.xinitrc .
-	echo ".xinitrc already copy"
+	printf ".xinitrc already copy \n"
 else
-	echo ".xinitrc no exist"
+	printf "\e[0;31m .xinitrc no exist \e[0m\n"
 fi
 
 sleep 2
@@ -26,9 +28,9 @@ sleep 2
 if [ -f ~/.zprofile ]
 then
 	cp ~/.zprofile .
-	echo ".zprofile already copy"
+	printf ".zprofile already copy \n"
 else
-	echo ".zprofile no exist"
+	printf "\e[0;31m .zprofile no exist \e[0m\n"
 fi
 
 sleep 2
@@ -36,19 +38,19 @@ sleep 2
 # .config etc systemd
 if [ -d .config ] && [ -d etc ] && [ -d systemd ]
 then
-        echo "task starting"
+        printf "\e[0;32m task starting \e[0m\n"
 else
         mkdir -p {.config,etc,systemd}
-        printf "\e[0;32mtask starting!\e[0m\n"
+        printf "\e[0;32m task starting! \e[0m\n"
 fi
 
 # polybar
 if [ -d ~/.config/polybar ]
 then
 	cp -r ~/.config/polybar ./.config/
-	echo "polybar already copy"
+	printf "polybar already copy \n"
 else
-	echo "polybar no exist"
+	printf "\e[0;31m polybar no exist \e[0m\n"
 fi
 
 sleep 2
@@ -57,9 +59,9 @@ sleep 2
 if [ -d ~/.config/alacritty ]
 then
 	cp -r ~/.config/alacritty ./.config/
-	echo "alacritty already copy"
+	printf "alacritty already copy \n"
 else
-	echo "alacritty no exist"
+	printf "\e[0;31m alacritty no exist \e[0m\n"
 fi
 
 sleep 2
@@ -68,9 +70,9 @@ sleep 2
 if [ -d ~/.config/dunst ]
 then
 	cp -r ~/.config/dunst ./.config/
-	echo "dunst already copy"
+	printf "dunst already copy \n"
 else
-	echo "dunst no exist"
+	printf "\e[0;31m dunst no exist \e[0m\n"
 fi
 
 sleep 2
@@ -79,9 +81,9 @@ sleep 2
 if [ -d ~/.config/fontconfig ]
 then
 	cp -r ~/.config/fontconfig ./.config/
-	echo "fontconfig already already copy"
+	printf "fontconfig already already copy \n"
 else
-	echo "fontconfig no exist"
+	printf "\e[0;31m fontconfig no exist \e[0m\n"
 fi
 
 sleep 2
@@ -90,9 +92,9 @@ sleep 2
 if [ -d ~/.config/i3 ]
 then
 	cp -r ~/.config/i3 ./.config/
-	echo "i3 already already copy"
+	printf "i3 already already copy \n"
 else
-	echo "i3 no exist"
+	printf "\e[0;31m i3 no exist \e[0m\n"
 fi
 
 sleep 2
@@ -101,9 +103,9 @@ sleep 2
 if [ -d /etc/pacman.d/hooks ]
 then
 	cp -r /etc/pacman.d/hooks ./etc/
-	echo "hooks already copy"
+	printf "hooks already copy \n"
 else
-	echo "hooks no exist"
+	printf "\e[0;31m hooks no exist \e[0m\n"
 fi
 
 sleep 2
@@ -112,9 +114,9 @@ sleep 2
 if [ -f /usr/lib/systemd/system/lock@.service ]
 then
 	cp -r /usr/lib/systemd/system/lock@.service ./systemd/
-	echo "lock@.service already copy"
+	printf "lock@.service already copy \n"
 else
-	echo "lock@.service no exist"
+	printf "\e[0;31m lock@.service no exist \e[0m\n"
 fi
 
-printf "\e[0;32mDone!\e[0m\n"
+printf "\e[0;32m Done! \e[0m\n"
