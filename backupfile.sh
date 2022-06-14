@@ -92,7 +92,7 @@ sleep 2
 if [ -d ~/.config/i3 ]
 then
 	cp -r ~/.config/i3 ./.config/
-	printf "i3 already already copy \n"
+	printf "i3 already copy \n"
 else
 	printf "\e[0;31m i3 no exist \e[0m\n"
 fi
@@ -119,4 +119,16 @@ else
 	printf "\e[0;31m lock@.service no exist \e[0m\n"
 fi
 
+sleep 2
+
+# autostart
+if [ -d ~/.config/autostart ]
+then
+	cp -r ~/.config/autostart ./.config/
+	printf "autostart already copy \n"
+else
+	printf "\e[0;31m autostart no exist \e[0m\n"
+fi
+
+#---------------------------
 printf "\e[0;32m Done! \e[0m\n"

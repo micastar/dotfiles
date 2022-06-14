@@ -452,13 +452,13 @@ exec_always --no-startup-id killall feh; sleep 0.2; feh --bg-fill $HOME/.wallpap
 
 exec_always --no-startup-id killall picom; sleep 0.2; picom --config $HOME/.config/picom/picom.conf
 
-exec --no-startup-id mictray
+# exec --no-startup-id mictray
 
-exec --no-startup-id copyq &		#剪贴板
+# exec --no-startup-id copyq &		#剪贴板
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh	# 开启 polybar
 
-exec --no-startup-id fcitx5 &		#fcitx5输入法
+# exec --no-startup-id fcitx5 &		#fcitx5输入法
 
 #exec --no-startup-id dunst -config ~/.config/dunst/dunstrc &
 
@@ -507,17 +507,20 @@ bindsym $mod1+$mod+n  exec alacritty -t 'alacritty-nmtui'        -e nmtui
 
 for_window [class="Spotify"] move container to workspace $ws10
 
-for_window [instance="telegram-desktop"]          floating enable
-for_window [instance="virt-manager"]          floating enable
-for_window [instance="copyq"]          floating enable
-for_window [instance="flameshot"]          floating enable
-for_window [instance="pavucontrol"]          floating enable 
-for_window [instance="blueman-manager"]          floating enable 
-for_window [instance="nm-connection-editor"]          floating enable 
-for_window [instance="lxappearance"]          floating enable 
-for_window [instance="mictray"]          floating enable 
-for_window [instance="fcitx5-config-qt"]          floating enable 
-for_window [instance="wemeetapp"]          floating enable 
+
+for_window [class="Clash for Windows"]          floating enable, move position center
+for_window [class="TelegramDesktop"]          floating enable, move position right
+for_window [class="Virt-manager"]          floating enable, move position center
+for_window [class="copyq"]          floating enable, move position center
+for_window [class="flameshot"]          floating enable
+for_window [class="Mictray"]          floating enable, move position center
+for_window [class="Blueman-manager"]          floating enable, move position center
+for_window [class="Blueman-services"]          floating enable, move position center
+for_window [class="Nm-connection-editor"]          floating enable, move position center
+for_window [class="lxappearance"]          floating enable, move position center
+for_window [class="mictray"]          floating enable, move position center
+for_window [class="fcitx5-config-qt"]          floating enable, move position center
+for_window [class="wemeetapp"]          floating enable, move position center
 
 #for_window [instance="gcalctool"]          floating enable
 #for_window [instance="lxappearance"]       floating enable

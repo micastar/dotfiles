@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=/usr/bin/copyq
+Name=copyq
+Comment=Clipboard Manager with Advanced Features
+Type=Application
