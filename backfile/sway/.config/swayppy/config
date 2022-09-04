@@ -1,0 +1,8 @@
+[Default]
+save_dir=$HOME/Picture
+save_filename_format=%Y%m%d-%H%M%S.jpeg
+show_panel=true
+line_size=5
+text_size=20
+text_font=Iosevka Term
+paint_mode=rectangle

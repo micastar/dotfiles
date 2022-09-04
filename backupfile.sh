@@ -2,38 +2,16 @@
 
 cd backfile
 
-# .pam_environment
-if [ -f ~/.pam_environment ]
-then
-	cp ~/.pam_environment .
-	printf ".pam_environment already copy \n"
-else
-	printf "\e[0;31m .pam_environment no exist \e[0m\n"
-fi
+trash-put ./* ./.*
 
-sleep 2
+# mkdir -p i3 sway
+mkdir -p sway
 
-# .xinitrc
-if [ -f ~/.xinitrc ]
-then
-	cp ~/.xinitrc .
-	printf ".xinitrc already copy \n"
-else
-	printf "\e[0;31m .xinitrc no exist \e[0m\n"
-fi
+#
+# basic file
+#
 
-sleep 2
-
-# .zprofile
-if [ -f ~/.zprofile ]
-then
-	cp ~/.zprofile .
-	printf ".zprofile already copy \n"
-else
-	printf "\e[0;31m .zprofile no exist \e[0m\n"
-fi
-
-sleep 2
+printf "\e[0;32m basic file! \e[0m\n"
 
 # .config etc systemd
 if [ -d .config ] && [ -d etc ] && [ -d systemd ]
@@ -44,38 +22,24 @@ else
         printf "\e[0;32m task starting! \e[0m\n"
 fi
 
-# polybar
-if [ -d ~/.config/polybar ]
+# .pam_environment
+if [ -f ~/.pam_environment ]
 then
-	cp -r ~/.config/polybar ./.config/
-	printf "polybar already copy \n"
+	cp ~/.pam_environment .
+	printf ".pam_environment already copy \n"
 else
-	printf "\e[0;31m polybar no exist \e[0m\n"
+	printf "\e[0;31m .pam_environment no exist \e[0m\n"
 fi
 
-sleep 2
-
-# alacritty
-if [ -d ~/.config/alacritty ]
+# alacritty.yml
+if [ -f ~/.config/alacritty/alacritty.yml ]
 then
-	cp -r ~/.config/alacritty ./.config/
-	printf "alacritty already copy \n"
+	mkdir -p .config/alacritty
+	cp ~/.config/alacritty/alacritty.yml ./.config/alacritty
+	printf "alacritty.yml already copy \n"
 else
-	printf "\e[0;31m alacritty no exist \e[0m\n"
+	printf "\e[0;31m alacritty.yml no exist \e[0m\n"
 fi
-
-sleep 2
-
-# dunst
-if [ -d ~/.config/dunst ]
-then
-	cp -r ~/.config/dunst ./.config/
-	printf "dunst already copy \n"
-else
-	printf "\e[0;31m dunst no exist \e[0m\n"
-fi
-
-sleep 2
 
 # fontconfig
 if [ -d ~/.config/fontconfig ]
@@ -86,19 +50,6 @@ else
 	printf "\e[0;31m fontconfig no exist \e[0m\n"
 fi
 
-sleep 2
-
-# i3
-if [ -d ~/.config/i3 ]
-then
-	cp -r ~/.config/i3 ./.config/
-	printf "i3 already copy \n"
-else
-	printf "\e[0;31m i3 no exist \e[0m\n"
-fi
-
-sleep 2
-
 # hooks
 if [ -d /etc/pacman.d/hooks ]
 then
@@ -108,7 +59,32 @@ else
 	printf "\e[0;31m hooks no exist \e[0m\n"
 fi
 
-sleep 2
+# autostart
+if [ -d ~/.config/autostart ]
+then
+	cp -r ~/.config/autostart ./.config/
+	printf "autostart already copy \n"
+else
+	printf "\e[0;31m autostart no exist \e[0m\n"
+fi
+
+# rofi
+if [ -d ~/.config/rofi ]
+then
+	cp -r ~/.config/rofi .config/
+	printf "rofi already copy \n"
+else
+	printf "\e[0;31m rofi no exist \e[0m\n"
+fi
+
+# daemon.json
+if [ -f /etc/docker/daemon.json ]
+then
+	cp -r /etc/docker/daemon.json ./etc/
+	printf "daemon.json already copy \n"
+else
+	printf "\e[0;31m daemon.json no exist \e[0m\n"
+fi
 
 # lock@.service
 if [ -f /usr/lib/systemd/system/lock@.service ]
@@ -119,15 +95,244 @@ else
 	printf "\e[0;31m lock@.service no exist \e[0m\n"
 fi
 
-sleep 2
-
-# autostart
-if [ -d ~/.config/autostart ]
+# fh-sysctl.service
+if [ -f /usr/lib/systemd/system/fh-sysctl.service ]
 then
-	cp -r ~/.config/autostart ./.config/
-	printf "autostart already copy \n"
+	cp -r /usr/lib/systemd/system/fh-sysctl.service ./systemd/
+	printf "fh-sysctl.service already copy \n"
 else
-	printf "\e[0;31m autostart no exist \e[0m\n"
+	printf "\e[0;31m fh-sysctl.service no exist \e[0m\n"
+fi
+
+# sysctl.conf
+if [ -f /etc/sysctl.conf ]
+then
+	cp -r /etc/sysctl.conf ./etc/sysctl.conf
+	printf "sysctl.conf already copy \n"
+else
+	printf "\e[0;31m sysctl.conf no exist \e[0m\n"
+fi
+
+# .zimrc
+if [ -f ~/.zimrc ]
+then
+	cp ~/.zimrc ./.zimrc
+	printf ".zimrc already copy \n"
+else
+	printf "\e[0;31m .zimrc no exist \e[0m\n"
+fi
+
+# .makepkg.conf
+if [ -f ~/.makepkg.conf ]
+then
+	cp ~/.makepkg.conf ./.makepkg.conf
+	printf ".makepkg.conf already copy \n"
+else
+	printf "\e[0;31m .makepkg.conf no exist \e[0m\n"
+fi
+
+# .zshrc
+if [ -f ~/.zshrc ]
+then
+	cp ~/.zshrc ./.zshrc
+	printf ".zshrc already copy \n"
+else
+	printf "\e[0;31m .zshrc no exist \e[0m\n"
+fi
+
+# subladder-mmdb.service
+if [ -f ~/.config/systemd/user/subladder-mmdb.service ]
+then
+	mkdir -p .config/systemd/user
+	cp ~/.config/systemd/user/subladder-mmdb.service .config/systemd/user/
+	printf "subladder-mmdb.service already copy \n"
+else
+	printf "\e[0;31m subladder-mmdb.service no exist \e[0m\n"
+fi
+
+# subladder-mmdb.timer
+if [ -f ~/.config/systemd/user/subladder-mmdb.timer ]
+then
+	mkdir -p .config/systemd/user
+	cp ~/.config/systemd/user/subladder-mmdb.timer .config/systemd/user/
+	printf "subladder-mmdb.timer already copy \n"
+else
+	printf "\e[0;31m subladder-mmdb.timer no exist \e[0m\n"
+fi
+
+# subladder.service
+if [ -f ~/.config/systemd/user/subladder.service ]
+then
+	mkdir -p .config/systemd/user
+	cp ~/.config/systemd/user/subladder.service .config/systemd/user/
+	printf "subladder.service already copy \n"
+else
+	printf "\e[0;31m subladder.service no exist \e[0m\n"
+fi
+
+# subladder.timer
+if [ -f ~/.config/systemd/user/subladder.timer ]
+then
+	mkdir -p .config/systemd/user
+	cp ~/.config/systemd/user/subladder.timer .config/systemd/user/
+	printf "subladder.timer already copy \n"
+else
+	printf "\e[0;31m subladder.timer no exist \e[0m\n"
+fi
+
+# paru.conf
+if [ -f ~/.config/paru/paru.conf ]
+then
+	mkdir -p .config/paru
+	cp ~/.config/paru/paru.conf ./.config/paru
+	printf "paru.conf already copy \n"
+else
+	printf "\e[0;31m paru.conf no exist \e[0m\n"
+fi
+
+# default.custom.yaml
+if [ -f ~/.local/share/fcitx5/rime/default.custom.yaml ]
+then
+	mkdir -p .local/share/fcitx5/rime
+	cp -r ~/.local/share/fcitx5/rime/default.custom.yaml ./.local/share/fcitx5/rime
+	printf "default.custom.yaml already copy \n"
+else
+	printf "\e[0;31m default.custom.yaml no exist \e[0m\n"
+fi
+
+
+sleep 1
+
+# #
+# # i3 file
+# #
+
+# cd i3
+
+# printf "\e[0;32m i3 file! \e[0m\n"
+
+# # .zprofile
+# if [ -f ~/.zprofile ]
+# then
+# 	cp ~/.zprofile .
+# 	printf ".zprofile already copy \n"
+# else
+# 	printf "\e[0;31m .zprofile no exist \e[0m\n"
+# fi
+
+# # .xinitrc
+# if [ -f ~/.xinitrc ]
+# then
+# 	cp ~/.xinitrc .
+# 	printf ".xinitrc already copy \n"
+# else
+# 	printf "\e[0;31m .xinitrc no exist \e[0m\n"
+# fi
+
+# # polybar
+# if [ -d ~/.config/polybar ]
+# then
+# 	mkdir -p .config/polybar
+# 	cp -r ~/.config/polybar ./.config/
+# 	printf "polybar already copy \n"
+# else
+# 	printf "\e[0;31m polybar no exist \e[0m\n"
+# fi
+
+# # dunst
+# if [ -d ~/.config/dunst ]
+# then
+# 	cp -r ~/.config/dunst ./.config/
+# 	printf "dunst already copy \n"
+# else
+# 	printf "\e[0;31m dunst no exist \e[0m\n"
+# fi
+
+# # i3
+# if [ -d ~/.config/i3 ]
+# then
+# 	cp -r ~/.config/i3 ./.config/
+# 	printf "i3 already copy \n"
+# else
+# 	printf "\e[0;31m i3 no exist \e[0m\n"
+# fi
+
+# # picom.conf
+# if [ -f ~/.config/picom/picom.conf ]
+# then
+# 	mkdir -p .config/picom
+# 	cp -r ~/.config/picom ./.config/
+# 	printf "picom.conf already copy \n"
+# else
+# 	printf "\e[0;31m picom.conf no exist \e[0m\n"
+# fi
+
+# # xorg.conf.d
+# if [ -d /etc/X11/xorg.conf.d ]
+# then
+# 	mkdir -p ./etc/X11/xorg.conf.d
+# 	cp -r /etc/X11/xorg.conf.d ./etc/X11/xorg.conf.d
+# 	printf "xorg.conf.d already copy \n"
+# else
+# 	printf "\e[0;31m xorg.conf.d no exist \e[0m\n"
+# fi
+
+# # .Xresources
+# if [ -f ~/.Xresources ]
+# then
+# 	cp ~/.Xresources ./.Xresources
+# 	printf ".Xresources already copy \n"
+# else
+# 	printf "\e[0;31m .Xresources no exist \e[0m\n"
+# fi
+
+# cd ..
+
+# sleep 1
+
+#
+# sway file
+#
+
+cd sway
+
+printf "\e[0;32m sway file! \e[0m\n"
+
+# sway
+if [ -d ~/.config/sway ]
+then
+	mkdir -p .config/sway
+	cp -r ~/.config/sway ./.config/
+	printf "sway already copy \n"
+else
+	printf "\e[0;31m sway no exist \e[0m\n"
+fi
+
+# waybar
+if [ -d ~/.config/waybar ]
+then
+	cp -r ~/.config/waybar ./.config/
+	printf "waybar already copy \n"
+else
+	printf "\e[0;31m waybar no exist \e[0m\n"
+fi
+
+# mako
+if [ -d ~/.config/mako ]
+then
+	cp -r ~/.config/mako ./.config/
+	printf "mako already copy \n"
+else
+	printf "\e[0;31m mako no exist \e[0m\n"
+fi
+
+# swayppy
+if [ -d ~/.config/swayppy ]
+then
+	cp -r ~/.config/swayppy ./.config/
+	printf "swayppy already copy \n"
+else
+	printf "\e[0;31m swayppy no exist \e[0m\n"
 fi
 
 #---------------------------

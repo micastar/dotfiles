@@ -1,0 +1,385 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod1
+set $mod1 Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+
+# font pango:Iosevka Nerd Font 0
+font pango:Iosevka Term 0
+
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu rofi -combi-modi window#drun -show combi -modi combi -show-icons
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output "*" bg ~/.wallpaper/bac/bac-one.jpeg fill
+output * adaptive_sync on
+
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#    output eDP-1 resolution 1920x1080 position 1920,0
+    output eDP-1 resolution 1920x1080 position 0,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+
+   input "ELAN1200:00 04F3:3090 Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec alacritty
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun -show combi -modi combi -show-icons
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    #set $Locker ~/.config/waybar/scripts/lock.sh && sleep 1
+    set $Locker ~/.config/waybar/scripts/lock.sh
+
+    set $mode_system (l) lock, (x) logout, (r) reboot, (p) poweroff
+
+    mode "$mode_system" {
+        bindsym l exec --no-startup-id $Locker, mode "default"
+        bindsym x exec --no-startup-id swaymsg exit, mode "default"
+        bindsym r exec --no-startup-id systemctl reboot, mode "default"
+        bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+    bindsym $mod+x mode "$mode_system"
+
+    # 使用鼠标+$mod 将浮动窗口拖到想要的位置
+    floating_modifier $mod
+
+# ===============
+# === 切换焦点
+# ===============
+# 切换焦点
+    bindsym $mod+Tab focus right
+    bindsym $mod+Shift+Tab focus left
+
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+
+    # 使用光标键切换焦点
+    bindsym $mod+Left  focus left
+    bindsym $mod+Down  focus down
+    bindsym $mod+Up    focus up
+    bindsym $mod+Right focus right
+
+# ===============
+# === 移动容器
+# ===============
+# 移动容器
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
+
+    # 使用光标键移动容器
+    bindsym $mod+Shift+Left  move left
+    bindsym $mod+Shift+Down  move down
+    bindsym $mod+Shift+Up    move up
+    bindsym $mod+Shift+Right move right
+
+
+# =============
+# === 工作区
+# =============
+# 定义工作区
+    set $ws1 "1"
+    set $ws2 "2"
+    set $ws3 "3"
+    set $ws4 "4"
+    set $ws5 "5"
+    set $ws6 "6"
+    set $ws7 "7"
+    set $ws8 "8"
+    set $ws9 "9"
+    set $ws10 "10 "
+
+# 切换工作区
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws10
+
+# ===============
+# === 移动跟随
+# ===============
+# 移动当前容器到指定窗口并跟随
+    bindsym $mod+Shift+1 move container to workspace number $ws1,  workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace number $ws2,  workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace number $ws3,  workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace number $ws4,  workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace number $ws5,  workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace number $ws6,  workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace number $ws7,  workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace number $ws8,  workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace number $ws9,  workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace number $ws10, workspace $ws10
+
+
+# =================
+# === 移动不跟随
+# =================
+# 移动当前容器到指定窗口不跟随
+    bindsym $mod+Ctrl+1 move container to workspace number $ws1
+    bindsym $mod+Ctrl+2 move container to workspace number $ws2
+    bindsym $mod+Ctrl+3 move container to workspace number $ws3
+    bindsym $mod+Ctrl+4 move container to workspace number $ws4
+    bindsym $mod+Ctrl+5 move container to workspace number $ws5
+    bindsym $mod+Ctrl+6 move container to workspace number $ws6
+    bindsym $mod+Ctrl+7 move container to workspace number $ws7
+    bindsym $mod+Ctrl+8 move container to workspace number $ws8
+    bindsym $mod+Ctrl+9 move container to workspace number $ws9
+    bindsym $mod+Ctrl+0 move container to workspace number $ws10
+
+# ===============
+# === 窗口操作
+# ===============
+# 调整窗口大小
+    bindsym Shift+Ctrl+h     resize shrink width  10 px or 10 ppt
+    bindsym Shift+Ctrl+k     resize grow   height 10 px or 10 ppt
+    bindsym Shift+Ctrl+j     resize shrink height 10 px or 10 ppt
+    bindsym Shift+Ctrl+l     resize grow   width  10 px or 10 ppt
+
+    bindsym Shift+Ctrl+Left  resize shrink width  10 px or 10 ppt
+    bindsym Shift+Ctrl+Down  resize grow   height 10 px or 10 ppt
+    bindsym Shift+Ctrl+Up    resize shrink height 10 px or 10 ppt
+    bindsym Shift+Ctrl+Right resize grow   width  10 px or 10 ppt
+
+# ===========
+# === 布局
+# ===========
+
+#专注于窗口激活
+#Focus on window activation
+    focus_on_window_activation smart
+
+#隐藏与屏幕边缘相邻的边框
+#Hiding borders adjacent to the screen edges
+    hide_edge_borders both
+
+#全屏模式下的弹出窗口
+    popup_during_fullscreen smart
+
+#延迟紧急提示在工作空间变化上重置
+#Delaying urgency hint reset on workspace change
+    force_display_urgency_hint 500 ms
+
+#工作区自动来回
+#Automatic back-and-forth when switching to the current workspace
+    workspace_auto_back_and_forth yes
+
+#新默认窗口边框
+    default_border none
+
+# 设置窗口间距
+    #gaps inner 2
+    #gaps outer 2
+
+    #exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    #exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+    gaps inner  4
+    gaps outer  0
+    # Activate smart borders (always)
+    # smart_borders on
+    #smart_gaps on
+
+# 垂直分割
+    bindsym $mod+g split h
+
+# 水平分割
+    bindsym $mod+v split v
+
+# 进入聚焦容器的全屏模式
+    bindsym $mod+f fullscreen toggle
+
+# 切换平铺/浮动
+    bindsym $mod+Shift+space floating toggle
+
+# 在平铺/浮动窗口之间切换焦点
+    bindsym $mod+space focus mode_toggle
+
+# 集中父容器	->	聚焦桌面
+#Focusing containers
+    bindsym $mod+a focus parent
+
+# 集中子容器	->	聚焦当前窗口
+#Focusing containers
+    bindsym $mod+Ctrl+a focus child
+
+
+# 更改容器布局(stacked, tabbed, toggle split)
+#Manipulating layout
+#堆叠式（s-stacking）
+# bindsym $mod+s layout stacking
+#标签式（t-Tab）
+    bindsym $mod+t layout tabbed
+#在垂直平铺和水平平铺之间来回切换（默认，c-change）
+    bindsym $mod+c layout toggle split
+
+# 切换容器间间隙
+    bindsym $mod+Shift+Ctrl+i gaps inner all set 0; gaps outer all set 0
+    bindsym $mod+i       gaps inner all set 4; gaps outer all set 2
+
+
+# 屏幕操作
+    # bindsym $mod+p exec --no-startup-id	flameshot gui &
+
+    set $Screenshot ~/.config/waybar/scripts/screenshot.sh
+
+    bindsym $mod+p exec $Screenshot
+
+# 使用 pactl 在 PulseAudio 中调整音量。设置 $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# 屏幕亮度
+bindsym XF86MonBrightnessUp   exec "light -A 5"
+bindsym XF86MonBrightnessDown exec "light -U 5"
+
+
+bindsym $mod+F5 exec --no-startup-id notify-send "`bash $PWD/.config/polybar/scripts/fanspeed.sh`"
+
+# 图形文件管理器
+bindsym $mod1+e exec thunar
+
+#焦点跟随
+#Focus follows mouse
+focus_follows_mouse no
+
+
+# =======================
+# === 浮动窗口打开软件
+# =======================
+
+bindsym $mod1+$mod+z        exec alacritty -e btop
+
+# 浮动窗口
+
+for_window [class="Spotify"] move container to workspace $ws9
+
+for_window [app_id="pavucontrol"]          floating enable, move position center
+for_window [app_id="clash for windows"]          floating enable, move position center
+for_window [class="Telegram"]          floating enable, move position right
+#for_window [app_id="telegramdesktop"]          floating enable, move position right
+for_window [app_id="virt-manager"]          floating enable, move position center
+for_window [app_id="copyq"]          floating enable, move position center
+for_window [app_id="flameshot"]          floating enable
+for_window [app_id="Mictray"]          floating enable, move position center
+for_window [app_id="blueman-manager"]          floating enable, move position center
+for_window [app_id="blueman-services"]          floating enable, move position center
+for_window [app_id="nm-connection-editor"]          floating enable, move position center
+for_window [app_id="lxappearance"]          floating enable, move position center
+for_window [app_id="mictray"]          floating enable, move position center
+for_window [app_id="fcitx5-config-qt"]          floating enable, move position center
+for_window [app_id="wemeetapp"]          floating enable, move position center
+
+for_window [app_id="Alacritty"]                   opacity 0.87
+
+#for_window [shell=".*"] title_format "%title :: %shell"
+#for_window [shell="xwayland"] title_format "%title [xwayland]"
+#-------------#
+# Scratchpad: #
+#-------------#
+## hide | show window(minus is "-" and plus is "+".)
+bindsym $mod+minus move scratchpad
+bindsym $mod+equal scratchpad show
+
+
+exec --no-startup-id nm-applet --indicator &
+
+exec --no-startup-id ~/.config/waybar/launch_waybar.sh &
+
+exec --no-startup-id ~/.config/waybar/scripts/swayidle.sh &
+
+exec --no-startup-id  mako &
+
+exec --no-startup-id fcitx5 &
+
+exec --no-startup-id blueman-applet &
+
+#exec --no-startup-id copyq &
+
+exec xrdb -load ~/.Xresources
+
+
+#----------------------------------------#
+# window colours: border background text #
+#----------------------------------------#
+#    client.focused          #ffc0cb #ffc0cb #ffffff
+#    client.unfocused        #2e3440 #1f222d #888888
+#    client.focused_inactive #2e3440 #1f222d #888888 
+#    client.placeholder      #2e3440 #1f222d #888888
+#    client.urgent           #D08770 #D08770 #ffffff
+#    client.background       #242424
+
+
+
+
+include /etc/sway/config.d/*

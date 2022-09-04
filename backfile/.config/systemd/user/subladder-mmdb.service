@@ -1,0 +1,11 @@
+[Unit]
+Description=Subscription Remote Configuration
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/fh/Documents/clashfile/subladder
+ExecStart=/usr/bin/bash /home/fh/Documents/clashfile/subladder/update-mmdb.sh
+[Install]
+WantedBy=multi-user.target
+
