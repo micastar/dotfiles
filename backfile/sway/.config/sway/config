@@ -4,6 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+exec --no-startup-id dbus-update-activation-environment --all
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -92,7 +94,7 @@ output * adaptive_sync on
         bindsym l exec --no-startup-id $Locker, mode "default"
         bindsym x exec --no-startup-id swaymsg exit, mode "default"
         bindsym r exec --no-startup-id systemctl reboot, mode "default"
-        bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"  
+        bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -304,7 +306,7 @@ bindsym XF86MonBrightnessUp   exec "light -A 5"
 bindsym XF86MonBrightnessDown exec "light -U 5"
 
 
-bindsym $mod+F5 exec --no-startup-id notify-send "`bash $PWD/.config/polybar/scripts/fanspeed.sh`"
+bindsym $mod+F5 exec --no-startup-id notify-send "`bash $PWD/.config/waybar/scripts/fanspeed.sh`"
 
 # 图形文件管理器
 bindsym $mod1+e exec thunar
@@ -321,15 +323,17 @@ focus_follows_mouse no
 bindsym $mod1+$mod+z        exec alacritty -e btop
 
 # 浮动窗口
-
+# https://github.com/swaywm/sway/issues/6315#issuecomment-856746366
 for_window [class="Spotify"] move container to workspace $ws9
 
 for_window [app_id="pavucontrol"]          floating enable, move position center
 for_window [app_id="clash for windows"]          floating enable, move position center
-for_window [class="Telegram"]          floating enable, move position right
-#for_window [app_id="telegramdesktop"]          floating enable, move position right
+#for_window [class="telegram-desktop"]          floating enable
+for_window [title="Telegram"]          floating enable
+#for_window [class="TelegramDesktop"]          floating enable
+#for_window [class="telegramdesktop"]          floating enable, move position right
 for_window [app_id="virt-manager"]          floating enable, move position center
-for_window [app_id="copyq"]          floating enable, move position center
+for_window [class="copyq"]          floating enable, move position center
 for_window [app_id="flameshot"]          floating enable
 for_window [app_id="Mictray"]          floating enable, move position center
 for_window [app_id="blueman-manager"]          floating enable, move position center
@@ -374,7 +378,7 @@ exec xrdb -load ~/.Xresources
 #----------------------------------------#
 #    client.focused          #ffc0cb #ffc0cb #ffffff
 #    client.unfocused        #2e3440 #1f222d #888888
-#    client.focused_inactive #2e3440 #1f222d #888888 
+#    client.focused_inactive #2e3440 #1f222d #888888
 #    client.placeholder      #2e3440 #1f222d #888888
 #    client.urgent           #D08770 #D08770 #ffffff
 #    client.background       #242424

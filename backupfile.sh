@@ -200,6 +200,25 @@ else
 	printf "\e[0;31m default.custom.yaml no exist \e[0m\n"
 fi
 
+# extended.dict.yaml
+if [ -f ~/.local/share/fcitx5/rime/extended.dict.yaml ]
+then
+	mkdir -p .local/share/fcitx5/rime
+	cp -r ~/.local/share/fcitx5/rime/extended.dict.yaml ./.local/share/fcitx5/rime
+	printf "extended.dict.yaml already copy \n"
+else
+	printf "\e[0;31m extended.dict.yaml no exist \e[0m\n"
+fi
+
+# pinyin_simp.custom.yaml
+if [ -f ~/.local/share/fcitx5/rime/pinyin_simp.custom.yaml ]
+then
+	mkdir -p .local/share/fcitx5/rime
+	cp -r ~/.local/share/fcitx5/rime/pinyin_simp.custom.yaml ./.local/share/fcitx5/rime
+	printf "pinyin_simp.custom.yaml already copy \n"
+else
+	printf "\e[0;31m pinyin_simp.custom.yaml no exist \e[0m\n"
+fi
 
 sleep 1
 

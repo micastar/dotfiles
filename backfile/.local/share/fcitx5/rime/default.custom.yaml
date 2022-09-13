@@ -10,7 +10,7 @@ patch:
     page_size: 5
 
   schema_list:
-    - schema: wubi_pinyin
+    - schema: pinyin_simp
   switcher:
     abbreviate_options: true
     caption: "〔方案選單〕"

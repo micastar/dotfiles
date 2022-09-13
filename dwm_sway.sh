@@ -27,15 +27,15 @@ if [[ $aur_helper = true ]]; then
 fi
 
 # Install packages
-sudo pacman -Sy polkit-gnome lxappearance thunar xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk sway swaybg swayidle waybar wf-recorder btop xorg-xeyes pipewire-media-session qt5ct slurp sndio spdlog upower usbmuxd wayvnc wf-recorder wl-clipboard swappy gtk-layer-shell grim geocode-glib geoclue chrono-date aml gtk-layer-shell
+sudo pacman -Sy polkit-gnome lxappearance thunar xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk sway swaybg swayidle waybar wf-recorder btop xorg-xeyes pipewire-media-session qt5ct slurp sndio spdlog upower usbmuxd wayvnc wf-recorder wl-clipboard swappy gtk-layer-shell grim geocode-glib geoclue chrono-date aml
 
-paru -S firefox-esr-bin swaylock-effects swaynagmode swaytools waypipe wdisplays wev wlr-randr\
+paru -S firefox-esr-bin swaylock-effects swaynagmode swaytools waypipe wdisplays wev wlr-randr wlrobs-hg\
 
-sudo pacman -S rust rime-cloverpinyin fcitx5-pinyin-zhwiki fcitx5-im
+sudo pacman -S rust fcitx5-rime fcitx5-im rime-pinyin-simp
 
 # Install fonts
-sudo pacman -Sy --noconfirm dina-font tamsyn-font bdf-unifont ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur adobe-source-code-pro-fonts cantarell-fonts inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji
-
+# sudo pacman -Sy --noconfirm dina-font tamsyn-font bdf-unifont ttf-croscore ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur adobe-source-code-pro-fonts cantarell-fonts inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji
+sudo pacman -Sy --noconfirm ttf-dejavu ttf-bitstream-vera ttf-apple-emoji ttf-sarasa-gothic
 # Pull Git repositories and install
 # cd /tmp
 # repos=( "dmenu" "dwm" "dwmstatus" "st" "slock" )
