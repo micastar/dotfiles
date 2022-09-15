@@ -54,7 +54,7 @@ JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 # ELM_ENGINE=wayland
 # QT_QPA_PLATFORMTHEME=qt5ct
 
-#MOZ_ENABLE_WAYLAND=1
+MOZ_ENABLE_WAYLAND=1
 
 # https://wiki.archlinux.org/title/Wayland
 __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json

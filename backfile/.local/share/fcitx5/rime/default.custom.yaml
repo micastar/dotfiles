@@ -5,10 +5,8 @@ patch:
       Caps_Lock: commit_code
       Shift_L: commit_code
       Shift_R: commit_code
-
   menu:
     page_size: 5
-
   schema_list:
     - schema: pinyin_simp
   switcher:
@@ -18,11 +16,3 @@ patch:
     hotkeys:
       - "Control+grave"
     option_list_separator: "／"
-    save_options:
-      - full_shape
-      - ascii_punct
-      - simplification
-      - extended_charset
-      - zh_hant
-      # - zh_hans
-      # - zh_hant_tw
