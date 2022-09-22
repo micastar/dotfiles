@@ -6,9 +6,9 @@ set $mod Mod1
 set $mod1 Mod4
 
 # 启用的终端
-bindsym $mod+Return  exec	alacritty
+bindsym $mod+Return  exec alacritty
 
-exec --no-startup-id xrandr --output eDP-1 --primary
+#exec --no-startup-id xrandr --output eDP-1 --primary
 # 该字体安装广泛，提供大量 unicode 字形，从右到左
 # Retina/hidpi 显示器上的文本渲染和可扩展性（感谢 pango）。
 #font pango:DejaVu Sans Mono 8
@@ -26,7 +26,7 @@ exec --no-startup-id dex --autostart --environment i3
 # 暂停前的屏幕。 使用 loginctl lock-session 锁定您的屏幕。
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/polybar/scripts/lock.sh --nofork
-
+# exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 1200 "betterlockscreen -l --fx dim,pixel -u ~/.wallpaper/lockbac/lock-one.jpg --off 30" ""
 
 # NetworkManager 是 Linux 上最流行的无线网络管理方式，
 # 和 nm-applet 是一个独立于桌面环境的系统托盘 GUI。
@@ -87,7 +87,7 @@ mode "$mode_system" {
     bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"  
 
     # back to normal: Enter or Escape
-    bindsym Return mode "default"
+    #bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+x mode "$mode_system"
@@ -315,7 +315,7 @@ mode "$mode_display" {
     bindsym Shift+h exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
 
     # back to normal: Enter or Escape
-    bindsym Return mode "default"
+    #bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 # Declare here the shortcut to bring the display selection menu
@@ -358,19 +358,21 @@ focus_follows_mouse no
 # =exec_always --no-startup-id XXX
 
 
-exec_always --no-startup-id killall feh; sleep 0.2; feh --bg-fill $HOME/.wallpaper/bac/bac-one.jpg
+exec_always --no-startup-id killall feh; sleep 0.2; feh --bg-fill $HOME/.wallpaper/bac/bac-one.jpeg
 
-#exec_always --no-startup-id killall picom; sleep 0.2; picom --config $HOME/.config/picom/picom.conf
+exec_always --no-startup-id killall picom; sleep 0.2; picom --config $HOME/.config/picom/picom.conf
 
 # exec --no-startup-id mictray
 
-# exec --no-startup-id copyq &		#剪贴板
+exec --no-startup-id copyq &		#剪贴板
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh	# 开启 polybar
 
 # exec --no-startup-id fcitx5 &		#fcitx5输入法
 
-#exec --no-startup-id dunst -config ~/.config/dunst/dunstrc &
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc &
+
+exec --no-startup-id $HOME/.config/polybar/scripts/xidlehook.sh &
 
 # ==================
 # === 触摸板启/停

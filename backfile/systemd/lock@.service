@@ -1,15 +1,17 @@
 [Unit]
-Description=Idle manager for Wayland %i
-Documentation=man:swayidle(1)
+Description=Lock screen on suspend for %i
 Before=sleep.target suspend.target hibernate.target hybrid-sleep.target
 
 [Service]
 User=%i
-Environment=WAYLAND_DISPLAY=wayland-1
+Environment=DISPLAY=:0
+Type=simple
 Environment=XDG_RUNTIME_DIR=/run/user/1000
-Type=forking
-ExecStart=/home/%i/.config/waybar/scripts/lock.sh
-ExecStartPost=/usr/bin/sleep 2
+Environment=DBUS_SESSION_BUS_ADDRESS=/run/user/1000/bus
+#ExecStartPre= -/usr/bin/pkill -u %u unison
+ExecStart=/home/%i/.config/polybar/scripts/lock.sh
+TimeoutSec=infinity
+ExecStartPost=/usr/bin/sleep 1
 
 [Install]
 WantedBy=sleep.target suspend.target hibernate.target hybrid-sleep.target

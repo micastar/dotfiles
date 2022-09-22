@@ -4,8 +4,8 @@ cd backfile
 
 trash-put ./* ./.*
 
-# mkdir -p i3 sway
-mkdir -p sway
+mkdir -p i3
+# mkdir -p sway
 
 #
 # basic file
@@ -220,139 +220,148 @@ else
 	printf "\e[0;31m pinyin_simp.custom.yaml no exist \e[0m\n"
 fi
 
+# fehbg
+if [ -f ~/.fehbg ]
+then
+	cp -r ~/.fehbg .fehbg
+	printf ".fehbg already copy \n"
+else
+	printf "\e[0;31m .fehbg no exist \e[0m\n"
+fi
+
 sleep 1
 
-# #
-# # i3 file
-# #
+#
+# i3 file
+#
 
-# cd i3
+cd i3
 
-# printf "\e[0;32m i3 file! \e[0m\n"
+printf "\e[0;32m i3 file! \e[0m\n"
 
-# # .zprofile
-# if [ -f ~/.zprofile ]
-# then
-# 	cp ~/.zprofile .
-# 	printf ".zprofile already copy \n"
-# else
-# 	printf "\e[0;31m .zprofile no exist \e[0m\n"
-# fi
+# .zprofile
+if [ -f ~/.zprofile ]
+then
+	cp ~/.zprofile .
+	printf ".zprofile already copy \n"
+else
+	printf "\e[0;31m .zprofile no exist \e[0m\n"
+fi
 
-# # .xinitrc
-# if [ -f ~/.xinitrc ]
-# then
-# 	cp ~/.xinitrc .
-# 	printf ".xinitrc already copy \n"
-# else
-# 	printf "\e[0;31m .xinitrc no exist \e[0m\n"
-# fi
+# .xinitrc
+if [ -f ~/.xinitrc ]
+then
+	cp ~/.xinitrc .
+	printf ".xinitrc already copy \n"
+else
+	printf "\e[0;31m .xinitrc no exist \e[0m\n"
+fi
 
-# # polybar
-# if [ -d ~/.config/polybar ]
-# then
-# 	mkdir -p .config/polybar
-# 	cp -r ~/.config/polybar ./.config/
-# 	printf "polybar already copy \n"
-# else
-# 	printf "\e[0;31m polybar no exist \e[0m\n"
-# fi
+# polybar
+if [ -d ~/.config/polybar ]
+then
+	mkdir -p .config/polybar
+	cp -r ~/.config/polybar ./.config/
+	printf "polybar already copy \n"
+else
+	printf "\e[0;31m polybar no exist \e[0m\n"
+fi
 
-# # dunst
-# if [ -d ~/.config/dunst ]
-# then
-# 	cp -r ~/.config/dunst ./.config/
-# 	printf "dunst already copy \n"
-# else
-# 	printf "\e[0;31m dunst no exist \e[0m\n"
-# fi
+# dunst
+if [ -d ~/.config/dunst ]
+then
+	cp -r ~/.config/dunst ./.config/
+	printf "dunst already copy \n"
+else
+	printf "\e[0;31m dunst no exist \e[0m\n"
+fi
 
-# # i3
-# if [ -d ~/.config/i3 ]
-# then
-# 	cp -r ~/.config/i3 ./.config/
-# 	printf "i3 already copy \n"
-# else
-# 	printf "\e[0;31m i3 no exist \e[0m\n"
-# fi
+# i3
+if [ -d ~/.config/i3 ]
+then
+	cp -r ~/.config/i3 ./.config/
+	printf "i3 already copy \n"
+else
+	printf "\e[0;31m i3 no exist \e[0m\n"
+fi
 
-# # picom.conf
-# if [ -f ~/.config/picom/picom.conf ]
-# then
-# 	mkdir -p .config/picom
-# 	cp -r ~/.config/picom ./.config/
-# 	printf "picom.conf already copy \n"
-# else
-# 	printf "\e[0;31m picom.conf no exist \e[0m\n"
-# fi
+# picom.conf
+if [ -f ~/.config/picom/picom.conf ]
+then
+	mkdir -p .config/picom
+	cp -r ~/.config/picom ./.config/
+	printf "picom.conf already copy \n"
+else
+	printf "\e[0;31m picom.conf no exist \e[0m\n"
+fi
 
-# # xorg.conf.d
-# if [ -d /etc/X11/xorg.conf.d ]
-# then
-# 	mkdir -p ./etc/X11/xorg.conf.d
-# 	cp -r /etc/X11/xorg.conf.d ./etc/X11/xorg.conf.d
-# 	printf "xorg.conf.d already copy \n"
-# else
-# 	printf "\e[0;31m xorg.conf.d no exist \e[0m\n"
-# fi
+# xorg.conf.d
+if [ -d /etc/X11/xorg.conf.d ]
+then
+	mkdir -p ./etc/X11/xorg.conf.d
+	cp -r /etc/X11/xorg.conf.d ./etc/X11/xorg.conf.d
+	printf "xorg.conf.d already copy \n"
+else
+	printf "\e[0;31m xorg.conf.d no exist \e[0m\n"
+fi
 
-# # .Xresources
-# if [ -f ~/.Xresources ]
-# then
-# 	cp ~/.Xresources ./.Xresources
-# 	printf ".Xresources already copy \n"
-# else
-# 	printf "\e[0;31m .Xresources no exist \e[0m\n"
-# fi
+# .Xresources
+if [ -f ~/.Xresources ]
+then
+	cp ~/.Xresources ./.Xresources
+	printf ".Xresources already copy \n"
+else
+	printf "\e[0;31m .Xresources no exist \e[0m\n"
+fi
 
-# cd ..
+cd ..
 
-# sleep 1
+sleep 1
 
 #
 # sway file
 #
 
-cd sway
+# cd sway
 
-printf "\e[0;32m sway file! \e[0m\n"
+# printf "\e[0;32m sway file! \e[0m\n"
 
-# sway
-if [ -d ~/.config/sway ]
-then
-	mkdir -p .config/sway
-	cp -r ~/.config/sway ./.config/
-	printf "sway already copy \n"
-else
-	printf "\e[0;31m sway no exist \e[0m\n"
-fi
+# # sway
+# if [ -d ~/.config/sway ]
+# then
+# 	mkdir -p .config/sway
+# 	cp -r ~/.config/sway ./.config/
+# 	printf "sway already copy \n"
+# else
+# 	printf "\e[0;31m sway no exist \e[0m\n"
+# fi
 
-# waybar
-if [ -d ~/.config/waybar ]
-then
-	cp -r ~/.config/waybar ./.config/
-	printf "waybar already copy \n"
-else
-	printf "\e[0;31m waybar no exist \e[0m\n"
-fi
+# # waybar
+# if [ -d ~/.config/waybar ]
+# then
+# 	cp -r ~/.config/waybar ./.config/
+# 	printf "waybar already copy \n"
+# else
+# 	printf "\e[0;31m waybar no exist \e[0m\n"
+# fi
 
-# mako
-if [ -d ~/.config/mako ]
-then
-	cp -r ~/.config/mako ./.config/
-	printf "mako already copy \n"
-else
-	printf "\e[0;31m mako no exist \e[0m\n"
-fi
+# # mako
+# if [ -d ~/.config/mako ]
+# then
+# 	cp -r ~/.config/mako ./.config/
+# 	printf "mako already copy \n"
+# else
+# 	printf "\e[0;31m mako no exist \e[0m\n"
+# fi
 
-# swayppy
-if [ -d ~/.config/swayppy ]
-then
-	cp -r ~/.config/swayppy ./.config/
-	printf "swayppy already copy \n"
-else
-	printf "\e[0;31m swayppy no exist \e[0m\n"
-fi
+# # swayppy
+# if [ -d ~/.config/swayppy ]
+# then
+# 	cp -r ~/.config/swayppy ./.config/
+# 	printf "swayppy already copy \n"
+# else
+# 	printf "\e[0;31m swayppy no exist \e[0m\n"
+# fi
 
-#---------------------------
-printf "\e[0;32m Done! \e[0m\n"
+# #---------------------------
+# printf "\e[0;32m Done! \e[0m\n"

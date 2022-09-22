@@ -1,0 +1,15 @@
+[Unit]
+Description=Idle manager for Wayland %i
+Documentation=man:swayidle(1)
+Before=sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+[Service]
+User=%i
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Type=forking
+ExecStart=/home/%i/.config/waybar/scripts/lock.sh
+ExecStartPost=/usr/bin/sleep 2
+
+[Install]
+WantedBy=sleep.target suspend.target hibernate.target hybrid-sleep.target

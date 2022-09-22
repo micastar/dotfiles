@@ -161,7 +161,7 @@ SAVEHIST=20000
 #alias sh='sort -t ";" -k 2 -u ~/.zsh_history | sort -o ~/.zsh_history
 #    echo "clear"'
 
-#alias mu='sudo reflector --country China --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
+alias mu='sudo reflector --country HK --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
 
 alias cleanup_packages='(set -x; sudo pacman -Rsn $(pacman -Qdttq))'
 
