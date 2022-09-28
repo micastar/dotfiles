@@ -1,14 +1,14 @@
 {
-		"experimental": true,
-		"registry-mirrors": [
-			"https://dockerproxy.com"
-		],
-		"live-restore": true,
-		"ipv6": false,
-		"log-driver": "json-file",
-		"log-opts": {
-			"max-size": "10m", 
-			"max-file": "3"
-		}
-
+	"experimental": true,
+	"registry-mirrors": [
+		"https://hub-mirror.c.163.com",
+		"https://mirror.baiduce.com"
+	],
+	"live-restore": true,
+	"ipv6": false,
+	"log-driver": "json-file",
+	"log-opts": {
+		"max-size": "10m",
+		"max-file": "3"
+	}
 }

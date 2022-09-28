@@ -1,11 +1,17 @@
-#!/bin/env
+#!/bin/env bash
+
+# backfile folder
+if [ -d ./backfile ]
+then
+		rm -rv ./backfile
+        printf "\e[0;32m backfile removed, and task starting \e[0m\n"
+else
+        printf "\e[0;32m task starting! \e[0m\n"
+fi
+
+mkdir -p backfile
 
 cd backfile
-
-trash-put ./* ./.*
-
-mkdir -p i3
-# mkdir -p sway
 
 #
 # basic file
@@ -23,19 +29,18 @@ else
 fi
 
 # .pam_environment
-if [ -f ~/.pam_environment ]
-then
-	cp ~/.pam_environment .
-	printf ".pam_environment already copy \n"
-else
-	printf "\e[0;31m .pam_environment no exist \e[0m\n"
-fi
+# if [ -f ~/.pam_environment ]
+# then
+# 	cp ~/.pam_environment .
+# 	printf ".pam_environment already copy \n"
+# else
+# 	printf "\e[0;31m .pam_environment no exist \e[0m\n"
+# fi
 
 # alacritty.yml
 if [ -f ~/.config/alacritty/alacritty.yml ]
 then
-	mkdir -p .config/alacritty
-	cp ~/.config/alacritty/alacritty.yml ./.config/alacritty
+	cp -r ~/.config/alacritty ./.config/alacritty
 	printf "alacritty.yml already copy \n"
 else
 	printf "\e[0;31m alacritty.yml no exist \e[0m\n"
@@ -44,7 +49,7 @@ fi
 # fontconfig
 if [ -d ~/.config/fontconfig ]
 then
-	cp -r ~/.config/fontconfig ./.config/
+	cp -r ~/.config/fontconfig ./.config
 	printf "fontconfig already already copy \n"
 else
 	printf "\e[0;31m fontconfig no exist \e[0m\n"
@@ -60,13 +65,13 @@ else
 fi
 
 # autostart
-if [ -d ~/.config/autostart ]
-then
-	cp -r ~/.config/autostart ./.config/
-	printf "autostart already copy \n"
-else
-	printf "\e[0;31m autostart no exist \e[0m\n"
-fi
+# if [ -d ~/.config/autostart ]
+# then
+# 	cp -r ~/.config/autostart ./.config/
+# 	printf "autostart already copy \n"
+# else
+# 	printf "\e[0;31m autostart no exist \e[0m\n"
+# fi
 
 # rofi
 if [ -d ~/.config/rofi ]
@@ -123,13 +128,13 @@ else
 fi
 
 # .makepkg.conf
-if [ -f ~/.makepkg.conf ]
-then
-	cp ~/.makepkg.conf ./.makepkg.conf
-	printf ".makepkg.conf already copy \n"
-else
-	printf "\e[0;31m .makepkg.conf no exist \e[0m\n"
-fi
+# if [ -f ~/.makepkg.conf ]
+# then
+# 	cp ~/.makepkg.conf ./.makepkg.conf
+# 	printf ".makepkg.conf already copy \n"
+# else
+# 	printf "\e[0;31m .makepkg.conf no exist \e[0m\n"
+# fi
 
 # .zshrc
 if [ -f ~/.zshrc ]
@@ -141,50 +146,49 @@ else
 fi
 
 # subladder-mmdb.service
-if [ -f ~/.config/systemd/user/subladder-mmdb.service ]
-then
-	mkdir -p .config/systemd/user
-	cp ~/.config/systemd/user/subladder-mmdb.service .config/systemd/user/
-	printf "subladder-mmdb.service already copy \n"
-else
-	printf "\e[0;31m subladder-mmdb.service no exist \e[0m\n"
-fi
+# if [ -f ~/.config/systemd/user/subladder-mmdb.service ]
+# then
+# 	mkdir -p .config/systemd/user
+# 	cp ~/.config/systemd/user/subladder-mmdb.service .config/systemd/user/
+# 	printf "subladder-mmdb.service already copy \n"
+# else
+# 	printf "\e[0;31m subladder-mmdb.service no exist \e[0m\n"
+# fi
 
 # subladder-mmdb.timer
-if [ -f ~/.config/systemd/user/subladder-mmdb.timer ]
-then
-	mkdir -p .config/systemd/user
-	cp ~/.config/systemd/user/subladder-mmdb.timer .config/systemd/user/
-	printf "subladder-mmdb.timer already copy \n"
-else
-	printf "\e[0;31m subladder-mmdb.timer no exist \e[0m\n"
-fi
+# if [ -f ~/.config/systemd/user/subladder-mmdb.timer ]
+# then
+# 	mkdir -p .config/systemd/user
+# 	cp ~/.config/systemd/user/subladder-mmdb.timer .config/systemd/user/
+# 	printf "subladder-mmdb.timer already copy \n"
+# else
+# 	printf "\e[0;31m subladder-mmdb.timer no exist \e[0m\n"
+# fi
 
 # subladder.service
-if [ -f ~/.config/systemd/user/subladder.service ]
-then
-	mkdir -p .config/systemd/user
-	cp ~/.config/systemd/user/subladder.service .config/systemd/user/
-	printf "subladder.service already copy \n"
-else
-	printf "\e[0;31m subladder.service no exist \e[0m\n"
-fi
+# if [ -f ~/.config/systemd/user/subladder.service ]
+# then
+# 	mkdir -p .config/systemd/user
+# 	cp ~/.config/systemd/user/subladder.service .config/systemd/user/
+# 	printf "subladder.service already copy \n"
+# else
+# 	printf "\e[0;31m subladder.service no exist \e[0m\n"
+# fi
 
 # subladder.timer
-if [ -f ~/.config/systemd/user/subladder.timer ]
-then
-	mkdir -p .config/systemd/user
-	cp ~/.config/systemd/user/subladder.timer .config/systemd/user/
-	printf "subladder.timer already copy \n"
-else
-	printf "\e[0;31m subladder.timer no exist \e[0m\n"
-fi
+# if [ -f ~/.config/systemd/user/subladder.timer ]
+# then
+# 	mkdir -p .config/systemd/user
+# 	cp ~/.config/systemd/user/subladder.timer .config/systemd/user/
+# 	printf "subladder.timer already copy \n"
+# else
+# 	printf "\e[0;31m subladder.timer no exist \e[0m\n"
+# fi
 
 # paru.conf
 if [ -f ~/.config/paru/paru.conf ]
 then
-	mkdir -p .config/paru
-	cp ~/.config/paru/paru.conf ./.config/paru
+	cp -r ~/.config/paru ./.config/paru
 	printf "paru.conf already copy \n"
 else
 	printf "\e[0;31m paru.conf no exist \e[0m\n"
@@ -223,10 +227,19 @@ fi
 # fehbg
 if [ -f ~/.fehbg ]
 then
-	cp -r ~/.fehbg .fehbg
+	cp -r ~/.fehbg ./.fehbg
 	printf ".fehbg already copy \n"
 else
 	printf "\e[0;31m .fehbg no exist \e[0m\n"
+fi
+
+# .zprofile
+if [ -f ~/.zprofile ]
+then
+	cp ~/.zprofile ./.zprofile
+	printf ".zprofile already copy \n"
+else
+	printf "\e[0;31m .zprofile no exist \e[0m\n"
 fi
 
 sleep 1
@@ -235,23 +248,14 @@ sleep 1
 # i3 file
 #
 
-cd i3
+# cd i3
 
 printf "\e[0;32m i3 file! \e[0m\n"
-
-# .zprofile
-if [ -f ~/.zprofile ]
-then
-	cp ~/.zprofile .
-	printf ".zprofile already copy \n"
-else
-	printf "\e[0;31m .zprofile no exist \e[0m\n"
-fi
 
 # .xinitrc
 if [ -f ~/.xinitrc ]
 then
-	cp ~/.xinitrc .
+	cp ~/.xinitrc ./.xinitrc
 	printf ".xinitrc already copy \n"
 else
 	printf "\e[0;31m .xinitrc no exist \e[0m\n"
@@ -260,8 +264,7 @@ fi
 # polybar
 if [ -d ~/.config/polybar ]
 then
-	mkdir -p .config/polybar
-	cp -r ~/.config/polybar ./.config/
+	cp -r ~/.config/polybar ./.config/polybar
 	printf "polybar already copy \n"
 else
 	printf "\e[0;31m polybar no exist \e[0m\n"
@@ -270,7 +273,7 @@ fi
 # dunst
 if [ -d ~/.config/dunst ]
 then
-	cp -r ~/.config/dunst ./.config/
+	cp -r ~/.config/dunst ./.config/dunst
 	printf "dunst already copy \n"
 else
 	printf "\e[0;31m dunst no exist \e[0m\n"
@@ -279,7 +282,7 @@ fi
 # i3
 if [ -d ~/.config/i3 ]
 then
-	cp -r ~/.config/i3 ./.config/
+	cp -r ~/.config/i3 ./.config/i3
 	printf "i3 already copy \n"
 else
 	printf "\e[0;31m i3 no exist \e[0m\n"
@@ -288,8 +291,7 @@ fi
 # picom.conf
 if [ -f ~/.config/picom/picom.conf ]
 then
-	mkdir -p .config/picom
-	cp -r ~/.config/picom ./.config/
+	cp -r ~/.config/picom ./.config/picom
 	printf "picom.conf already copy \n"
 else
 	printf "\e[0;31m picom.conf no exist \e[0m\n"
@@ -314,7 +316,7 @@ else
 	printf "\e[0;31m .Xresources no exist \e[0m\n"
 fi
 
-cd ..
+# cd ..
 
 sleep 1
 

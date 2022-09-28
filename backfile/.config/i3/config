@@ -45,8 +45,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # 屏幕亮度
-#bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
-#bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
+# bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
+# bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
 # 方案二  安装light-git
 bindsym XF86MonBrightnessUp   exec "light -A 8"
 bindsym XF86MonBrightnessDown exec "light -U 8"
@@ -325,7 +325,7 @@ bindsym $mod1+x mode "$mode_display"
 # 电子书
 # bindsym $mod1+Shift+t exec calibre --detach %U
 # 图形文件管理器
-bindsym $mod1+e exec thunar
+bindsym $mod1+e exec nemo
 
 # 网络管理
 #set $mode_net FTP(F) SSH(S) 邮件(T)
@@ -360,7 +360,7 @@ focus_follows_mouse no
 
 exec_always --no-startup-id killall feh; sleep 0.2; feh --bg-fill $HOME/.wallpaper/bac/bac-one.jpeg
 
-exec_always --no-startup-id killall picom; sleep 0.2; picom --config $HOME/.config/picom/picom.conf
+exec_always --no-startup-id killall picom; sleep 0.2; picom --experimental-backends --config $HOME/.config/picom/picom.conf
 
 # exec --no-startup-id mictray
 
@@ -368,11 +368,13 @@ exec --no-startup-id copyq &		#剪贴板
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh	# 开启 polybar
 
-# exec --no-startup-id fcitx5 &		#fcitx5输入法
+exec --no-startup-id fcitx5 &		#fcitx5输入法
 
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc &
 
 exec --no-startup-id $HOME/.config/polybar/scripts/xidlehook.sh &
+
+exec --no-startup-id $HOME/.config/polybar/scripts/autenticador.sh &
 
 # ==================
 # === 触摸板启/停
@@ -434,7 +436,7 @@ for_window [class="Mictray"]          floating enable, move position center
 for_window [class="Blueman-manager"]          floating enable, move position center
 for_window [class="Blueman-services"]          floating enable, move position center
 for_window [class="Nm-connection-editor"]          floating enable, move position center
-for_window [class="lxappearance"]          floating enable, move position center
+for_window [class="Lxappearance"]          floating enable, move position center
 for_window [class="mictray"]          floating enable, move position center
 for_window [class="fcitx5-config-qt"]          floating enable, move position center
 for_window [class="wemeetapp"]          floating enable, move position center

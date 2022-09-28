@@ -8,6 +8,7 @@ else
 # Wait until the processes have been shut down
 # while pgrep -u $UID -x i3lock >/dev/null; do sleep 1; done
 
+# betterlockscreen -l --fx dimblur -u ~/.wallpaper/lockbac/lock-one.jpg -q true
 betterlockscreen -l --fx dimblur -q true
 
 fi

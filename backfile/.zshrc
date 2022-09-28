@@ -71,8 +71,6 @@ WORDCHARS=${WORDCHARS//[\/]}
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=6"
 
 # Customize the style that the suggestions are shown with.
 # See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
@@ -130,10 +128,6 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
-HISTSIZE=20000
-SAVEHIST=20000
 
 # End of lines configured by zsh-newuser-install
 # hp() {
@@ -161,6 +155,7 @@ SAVEHIST=20000
 #alias sh='sort -t ";" -k 2 -u ~/.zsh_history | sort -o ~/.zsh_history
 #    echo "clear"'
 
+#alias mu='sudo reflector --country China --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
 alias mu='sudo reflector --country HK --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
 
 alias cleanup_packages='(set -x; sudo pacman -Rsn $(pacman -Qdttq))'
@@ -168,12 +163,8 @@ alias cleanup_packages='(set -x; sudo pacman -Rsn $(pacman -Qdttq))'
 alias pping='prettyping --nolegend'
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
-#dd support for ctrl+o to open selected file in VS Code
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-
-alias doasedit='doas vim'
 
 # lg() {
 #     export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
@@ -188,11 +179,8 @@ alias doasedit='doas vim'
 
 alias lg='lazygit'
 
-alias pacmansy='doas pacman -Sy'
-alias pacmansu='doas pacman -Su'
-#alias sudoeg='sudo -E gg'
-#export EDITOR=/usr/bin/vim
-# source /usr/share/zsh/share/antigen.zsh
+alias pacmansy='sudo pacman -Sy'
+alias pacmansu='sudo pacman -Su'
 
 # Functions
 # ex() {
@@ -220,15 +208,7 @@ alias pacmansu='doas pacman -Su'
 # }
 
 
-fanspeed() {
-	n='bat /sys/devices/platform/asus-nb-wmi/fan_boost_mode'
-	echo n
-}
-
-
-# Created by `pipx` on 2022-09-12 13:57:30
-export PATH="$PATH:/home/fh/.local/bin"
-
-autoload -U bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pipx)"
+# fanspeed() {
+# 	n='bat /sys/devices/platform/asus-nb-wmi/fan_boost_mode'
+# 	echo n
+# }
