@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/env bash
 
 # Terminate already running bar instances
 # killall -q i3lock
-if pgrep -x swaylock;
+if pgrep -x i3lock;
 then echo ;
 else
 # Wait until the processes have been shut down

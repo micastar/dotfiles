@@ -14,12 +14,13 @@ xidlehook \
   --not-when-fullscreen \
   `# Don't lock when there's audio playing` \
   --not-when-audio \
-  `# Dim the screen after 60 seconds, undim if user becomes active` \
-  --timer 1200 \
+  `# Dim the screen after 602 seconds, undim if user becomes active` \
+  --timer 600 \
     'if pgrep -x i3lock; then echo ; else ~/.config/polybar/scripts/lock.sh; fi' '' \
   `# Finally, suspend an hour after it locks` \
   --timer 43200 \
-    'if pgrep -x i3lock; then systemctl suspend; fi' '' \
+    'systemctl suspend' '' \
+    # 'if pgrep -x i3lock; then systemctl suspend; fi' '' \
   # `# Dim the screen after 60 seconds, undim if user becomes active` \
   # --timer 900 \
   #   'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \

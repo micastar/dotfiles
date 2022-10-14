@@ -118,6 +118,16 @@ else
 	printf "\e[0;31m sysctl.conf no exist \e[0m\n"
 fi
 
+# blacklist.conf
+if [ -f /etc/modprobe.d/blacklist.conf ]
+then
+	mkdir -p etc/modprobe.d
+	cp -r /etc/modprobe.d/blacklist.conf ./etc/modprobe.d/blacklist.conf
+	printf "blacklist.conf already copy \n"
+else
+	printf "\e[0;31m blacklist.conf no exist \e[0m\n"
+fi
+
 # .zimrc
 if [ -f ~/.zimrc ]
 then

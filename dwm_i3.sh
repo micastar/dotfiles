@@ -27,14 +27,24 @@ if [[ $aur_helper = true ]]; then
 fi
 
 # Install packages
-sudo pacman -Sy xorg polkit-gnome nitrogen lxappearance nemo xdg-desktop-portal xdg-desktop-portal-gtk
+sudo pacman -Sy
+
+sudo pacman -S archlinuxcn-keyring
+
+sudo pacman -S xorg-server xorg-xinit polkit-gnome lxappearance nemo xdg-desktop-portal xdg-desktop-portal-gtk timeshift
 
 # Install fonts
 # sudo pacman -Sy --noconfirm dina-font tamsyn-font bdf-unifont ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid gnu-free-fonts ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts ttf-roboto tex-gyre-fonts ttf-ubuntu-font-family ttf-anonymous-pro ttf-cascadia-code ttf-fantasque-sans-mono ttf-fira-mono ttf-hack ttf-fira-code ttf-inconsolata ttf-jetbrains-mono ttf-monofur adobe-source-code-pro-fonts cantarell-fonts inter-font ttf-opensans gentium-plus-font ttf-junicode adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji
 
-sudo pacman -S rust fcitx5-rime fcitx5-im rime-pinyin-simp
+# sudo pacman -S rust fcitx5-rime fcitx5-im rime-pinyin-simp
 
-sudo pacman -Sy --noconfirm ttf-dejavu ttf-bitstream-vera ttf-apple-emoji ttf-sarasa-gothic
+sudo pacman -S  alacritty polybar picom rofi rust redshift \
+                    fcitx5-rime fcitx5-im rime-pinyin-simp \
+                        redshift telegram-desktop tldr traceroute unzip vim-plug \
+                            x11vnc pavucontrol pbzip2 obs-studio obsidian ncdu hugo \
+                                flameshot exa betterlockscreen
+
+sudo pacman -S --noconfirm ttf-dejavu ttf-bitstream-vera ttf-apple-emoji ttf-sarasa-gothic noto-fonts-cjk ttf-iosevka-nerd
 
 paru -S firefox-esr
 
