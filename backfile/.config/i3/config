@@ -360,7 +360,8 @@ focus_follows_mouse no
 
 exec_always --no-startup-id killall feh; sleep 0.2; feh --bg-fill $HOME/.wallpaper/bac/bac-one.jpeg
 
-exec_always --no-startup-id killall picom; sleep 0.2; picom --experimental-backends --config $HOME/.config/picom/picom.conf
+#exec_always --no-startup-id killall picom; sleep 0.2; picom --experimental-backends --config $HOME/.config/picom/picom.conf
+exec_always --no-startup-id killall picom; sleep 0.2; picom --config $HOME/.config/picom/picom.conf
 
 # exec --no-startup-id mictray
 
