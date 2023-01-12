@@ -138,13 +138,13 @@ else
 fi
 
 # .makepkg.conf
-# if [ -f ~/.makepkg.conf ]
-# then
-# 	cp ~/.makepkg.conf ./.makepkg.conf
-# 	printf ".makepkg.conf already copy \n"
-# else
-# 	printf "\e[0;31m .makepkg.conf no exist \e[0m\n"
-# fi
+if [ -f ~/.makepkg.conf ]
+then
+	cp ~/.makepkg.conf ./.makepkg.conf
+	printf ".makepkg.conf already copy \n"
+else
+	printf "\e[0;31m .makepkg.conf no exist \e[0m\n"
+fi
 
 # .zshrc
 if [ -f ~/.zshrc ]
