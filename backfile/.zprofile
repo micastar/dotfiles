@@ -7,6 +7,8 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 #export LIBGL_DRI3_DISABLE=1
-#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-export LD_LIBRARY_PATH="/opt/android-studio/jre/lib"
-#export LD_LIBRARY_PATH=/usr/lib/jvm/java-11-openjdk/lib
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+#export LD_LIBRARY_PATH="/opt/android-studio/jre/lib"
+export LD_LIBRARY_PATH=/usr/lib/jvm/java-11-openjdk
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit

@@ -109,6 +109,15 @@ else
 	printf "\e[0;31m fh-sysctl.service no exist \e[0m\n"
 fi
 
+# fh-tproxy-iptables.service
+if [ -f /usr/lib/systemd/system/fh-tproxy-iptables.service ]
+then
+	cp -r /usr/lib/systemd/system/fh-tproxy-iptables.service ./systemd/
+	printf "fh-tproxy-iptables.service already copy \n"
+else
+	printf "\e[0;31m fh-tproxy-iptables.service no exist \e[0m\n"
+fi
+
 # sysctl.conf
 if [ -f /etc/sysctl.conf ]
 then

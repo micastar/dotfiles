@@ -1,3 +1,4 @@
+live_config_reload: true
 #设置字体
 font:
   normal:

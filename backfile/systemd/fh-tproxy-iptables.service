@@ -1,0 +1,13 @@
+[Unit]
+Description=tproxy
+Before=network-pre.target
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=bash /home/fh/.config/clash/iptables.sh
+ExecStop=bash /home/fh/.config/clash/iptables_clean.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
