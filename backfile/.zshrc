@@ -131,9 +131,9 @@ unset key
 
 # End of lines configured by zsh-newuser-install
 # hp() {
-#         export http_proxy="http://localhost:7890"
-#         export https_proxy="https://localhost:7890"
-#         export all_proxy="http://localhost:7890"
+#         export http_proxy="http://192.168.2.250:7894"
+#         export https_proxy="http://192.168.2.250:7894"
+#         export all_proxy="socks5://192.168.2.250:7894"
 #         export no_proxy="localhost, 127.0.0.1, 192.168.1.0/24, 10.0.0.0/8"
 #         echo "https_proxy"=$https_proxy
 #         echo "http_proxy"=$http_proxy
@@ -160,7 +160,7 @@ unset key
 #    echo "clear"'
 
 #alias mu='sudo reflector --country China --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
-alias mu='sudo reflector --country HK --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
+alias mu='sudo reflector --age 6 --latest 3 --fastest 3 --threads 6 --sort rate --protocol http,https --save /etc/pacman.d/mirrorlist'
 
 alias cleanup_packages='(set -x; sudo pacman -Rsn $(pacman -Qdttq))'
 
