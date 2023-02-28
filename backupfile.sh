@@ -64,14 +64,15 @@ else
 	printf "\e[0;31m hooks no exist \e[0m\n"
 fi
 
-# autostart
-# if [ -d ~/.config/autostart ]
-# then
-# 	cp -r ~/.config/autostart ./.config/
-# 	printf "autostart already copy \n"
-# else
-# 	printf "\e[0;31m autostart no exist \e[0m\n"
-# fi
+# clash
+if [ -d ~/.config/clash/cron ]
+then
+	mkdir -p ./.config/clash/cron
+	cp -r ~/.config/clash/cron ./.config/clash/cron
+	printf "cron already copy \n"
+else
+	printf "\e[0;31m cron no exist \e[0m\n"
+fi
 
 # rofi
 if [ -d ~/.config/rofi ]
