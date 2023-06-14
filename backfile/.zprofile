@@ -19,6 +19,11 @@ export STUDIO_PROPERTIES=/home/fh/AndroidEnv/cache/back/as.properties
 export IDEA_JDK=/usr/lib/jvm/java-17-openjdk
 # IDEA_JDK
 export QT_QPA_PLATFORM=xcb
+# https://wiki.archlinux.org/title/Intel_graphics#Font_and_screen_corruption_in_GTK_applications_(missing_glyphs_after_suspend/resume)
 export COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer
 
-export GNOME_KEYRING_CONTROL=$(ls -d /run/user/$(id -u)/keyring/control)
+#export GNOME_KEYRING_CONTROL=$(ls -d /run/user/$(id -u)/keyring/control)
+
+# https://wiki.archlinux.org/title/Xdg-utils
+# https://wiki.archlinux.org/title/XDG_Desktop_Portal
+export XDG_CURRENT_DESKTOP=XFCE
