@@ -20,3 +20,5 @@ export IDEA_JDK=/usr/lib/jvm/java-17-openjdk
 # IDEA_JDK
 export QT_QPA_PLATFORM=xcb
 export COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer
+
+export GNOME_KEYRING_CONTROL=$(ls -d /run/user/$(id -u)/keyring/control)

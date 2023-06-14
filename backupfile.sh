@@ -341,10 +341,20 @@ fi
 if [ -f /etc/X11/xorg.conf ]
 then
 	cp /etc/X11/xorg.conf ./etc/X11
-	printf "xorg.confd already copy \n"
+	printf "xorg.conf already copy \n"
 else
 	printf "\e[0;31m xorg.conf no exist \e[0m\n"
 fi
+
+# vconsole.conf
+if [ -f /etc/vconsole.conf ]
+then
+	cp /etc/vconsole.conf ./etc
+	printf "vconsole.conf already copy \n"
+else
+	printf "\e[0;31m vconsole.conf no exist \e[0m\n"
+fi
+
 # .Xresources
 if [ -f ~/.Xresources ]
 then
