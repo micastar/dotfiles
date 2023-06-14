@@ -5,4 +5,6 @@ Section "Device"
   Option "AccelMethod" "uxa"
   Option "TearFree" "true"
   Option "TripleBuffer" "true"
+#  Option "Videoram" "65536"
+#  Option "Cachelines" "1980"
 EndSection

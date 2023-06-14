@@ -3,15 +3,20 @@ live_config_reload: true
 font:
   normal:
     family: Sarasa Term SC
+    # family: Iosevka Nerd Font
+    #family: Source Code Pro
+      #family: Noto Sans
     style: Regular
 
-  bold:
-    family: Sarasa Term SC
-    style: Bold
+      #  bold:
+    # family: Sarasa Term SC
+    #family: Iosevka Nerd Font
+    #style: Bold
 
-  italic:
-    family: Sarasa Term SC
-    style: Italic
+      #italic:
+    # family: Sarasa Term SC
+    #family: Iosevka Nerd Font
+    #style: Italic
   size: 10
 draw_bold_text_with_bright_colors: true
 env:

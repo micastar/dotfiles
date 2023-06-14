@@ -428,7 +428,7 @@ bindsym $mod+x        exec alacritty -e btop
 
 for_window [class="Spotify"] move container to workspace $ws10
 
-
+for_window [class="scrcpy"]          floating enable, move position center
 for_window [class="Pavucontrol"]          floating enable, move position center
 for_window [class="Clash for Windows"]          floating enable, move position center
 for_window [class="TelegramDesktop"]          floating enable, move position right

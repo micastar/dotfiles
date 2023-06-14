@@ -67,8 +67,8 @@ fi
 # clash
 if [ -d ~/.config/clash/cron ]
 then
-	mkdir -p ./.config/clash/cron
-	cp -r ~/.config/clash/cron ./.config/clash/cron
+	mkdir -p ./.config/clash
+	cp -r ~/.config/clash/cron ./.config/clash
 	printf "cron already copy \n"
 else
 	printf "\e[0;31m cron no exist \e[0m\n"
@@ -128,14 +128,14 @@ else
 	printf "\e[0;31m sysctl.conf no exist \e[0m\n"
 fi
 
-# blacklist.conf
-if [ -f /etc/modprobe.d/blacklist.conf ]
+# modprobe.d
+if [ -d /etc/modprobe.d ]
 then
 	mkdir -p etc/modprobe.d
-	cp -r /etc/modprobe.d/blacklist.conf ./etc/modprobe.d/blacklist.conf
-	printf "blacklist.conf already copy \n"
+	cp -r /etc/modprobe.d ./etc/modprobe.d
+	printf "modprobe.d already copy \n"
 else
-	printf "\e[0;31m blacklist.conf no exist \e[0m\n"
+	printf "\e[0;31m modprobe.d no exist \e[0m\n"
 fi
 
 # .zimrc
@@ -163,6 +163,16 @@ then
 	printf ".zshrc already copy \n"
 else
 	printf "\e[0;31m .zshrc no exist \e[0m\n"
+fi
+
+# advancedFeatures.ini
+if [ -f ~/.android/advancedFeatures.ini ]
+then
+	mkdir -p .android
+	cp ~/.android/advancedFeatures.ini ./.android/advancedFeatures.ini
+	printf "advancedFeatures.ini already copy \n"
+else
+	printf "\e[0;31m advancedFeatures.ini no exist \e[0m\n"
 fi
 
 # subladder-mmdb.service
@@ -327,6 +337,14 @@ else
 	printf "\e[0;31m xorg.conf.d no exist \e[0m\n"
 fi
 
+# xorg.conf
+if [ -f /etc/X11/xorg.conf ]
+then
+	cp /etc/X11/xorg.conf ./etc/X11
+	printf "xorg.confd already copy \n"
+else
+	printf "\e[0;31m xorg.conf no exist \e[0m\n"
+fi
 # .Xresources
 if [ -f ~/.Xresources ]
 then
