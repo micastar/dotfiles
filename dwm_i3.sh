@@ -38,15 +38,17 @@ sudo pacman -S xorg-server xorg-xinit polkit-gnome lxappearance nemo xdg-desktop
 
 # sudo pacman -S rust fcitx5-rime fcitx5-im rime-pinyin-simp
 
-sudo pacman -S  alacritty polybar picom rofi rust redshift \
-                    fcitx5-rime fcitx5-im rime-pinyin-simp \
-                        redshift telegram-desktop tldr traceroute unzip vim-plug \
-                            x11vnc pavucontrol pbzip2 obs-studio obsidian ncdu hugo \
-                                flameshot exa betterlockscreen
+sudo pacman -S  alacritty polybar picom rofi rust \
+                    fcitx5-rime fcitx5-im rime-pinyin-simp fcitx5-pinyin-moegirl-rime rime-pinyin-zhwiki \
+                        redshift telegram-desktop tldr traceroute vim-plug \
+                            x11vnc pavucontrol pbzip2 bzip2 gzip p7zip pbzip2 pigz unzip zip obs-studio obsidian ncdu hugo \
+                                flameshot exa betterlockscreen dex \
+                                smartdns clash java-runtime-common java-environment-common python
 
-sudo pacman -S --noconfirm ttf-dejavu ttf-bitstream-vera ttf-apple-emoji ttf-sarasa-gothic noto-fonts-cjk ttf-iosevka-nerd
 
-paru -S firefox-esr
+sudo pacman -S --noconfirm ttf-dejavu ttf-bitstream-vera ttf-apple-emoji ttf-sarasa-gothic ttf-opensans ttf-iosevka-nerd ttf-liberation ttf-croscore
+
+paru -S firefox-esr ttf-ms-fonts 
 
 # Pull Git repositories and install
 # cd /tmp
