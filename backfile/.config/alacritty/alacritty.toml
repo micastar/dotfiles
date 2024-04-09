@@ -1,0 +1,27 @@
+import = ["/home/fh/git-repos/alacritty/dracula.toml"]
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[env]
+TERM = "xterm-256color"
+WINIT_HIDPI_FACTOR = "1.0"
+
+[font]
+size = 10
+
+[font.bold]
+family = "Sarasa Term SC"
+style = "Bold"
+
+[font.italic]
+family = "Sarasa Term SC"
+style = "Italic"
+
+[font.normal]
+family = "Sarasa Term SC"
+style = "Regular"
+
+[window]
+opacity = 0.75

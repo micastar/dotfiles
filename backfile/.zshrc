@@ -130,27 +130,28 @@ unset key
 
 
 # End of lines configured by zsh-newuser-install
-# hp() {
-#         export http_proxy="http://192.168.2.250:7894"
-#         export https_proxy="http://192.168.2.250:7894"
-#         export all_proxy="socks5://192.168.2.250:7894"
-#         export no_proxy="localhost, 127.0.0.1, 192.168.1.0/24, 10.0.0.0/8"
-#         echo "https_proxy"=$https_proxy
-#         echo "http_proxy"=$http_proxy
-#         echo "all_proxy"=$all_proxy
-#         echo "no_proxy"=$no_proxy
-# }
+
+hp() {
+        export http_proxy="http://127.0.0.1:7890"
+        export https_proxy="http://127.0.0.1:7890"
+        export all_proxy="socks5://127.0.0.1:7890"
+        # export no_proxy="localhost, 127.0.0.1, 192.168.1.0/24, 10.0.0.0/8"
+        echo "http_proxy"=$http_proxy
+        echo "https_proxy"=$https_proxy
+        echo "all_proxy"=$all_proxy
+        # echo "no_proxy"=$no_proxy
+}
 #Define `unsetproxy` command to disable proxy configuration
-# np() {
-#         unset http_proxy
-#         unset https_proxy
-#         unset all_proxy
-#         unset no_proxy
-#         echo "https_proxy"
-#         echo "http_proxy"
-#         echo "all_proxy"
-#         echo "no_proxy"
-# }
+np() {
+        unset http_proxy
+        unset https_proxy
+        unset all_proxy
+        # unset no_proxy
+        echo "http_proxy"
+        echo "https_proxy"
+        echo "all_proxy"
+        # echo "no_proxy"
+}
 # By default, enable proxy configuration for terminal login
 #setproxy
 #alias code='code --proxy-server="socks5://127.0.0.1:7891"'
@@ -186,6 +187,8 @@ alias lg='lazygit'
 alias pacmansy='sudo pacman -Sy'
 alias pacmansu='sudo pacman -Su'
 
+alias pcs='proxychains'
+
 # Functions
 # ex() {
 #     if [[ -f $1 ]]; then
@@ -216,3 +219,4 @@ alias pacmansu='sudo pacman -Su'
 # 	n='bat /sys/devices/platform/asus-nb-wmi/fan_boost_mode'
 # 	echo n
 # }
+alias curlgo='curl -Lo .gitignore https://www.toptal.com/developers/gitignore/api/go'

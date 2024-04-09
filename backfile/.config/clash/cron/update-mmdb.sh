@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/sh
 
 set -e
 
@@ -21,7 +21,7 @@ cd tmp
 # curl -Lo Country.mmdb "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country-only-cn-private.mmdb" \
 # -Lo Country-asn.mmdb.sha256sum "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country-only-cn-private.mmdb.sha256sum"
 
-curl -Lo Country.mmdb "https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb" \
+curl -Lo Country.mmdb "https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb"
 
 # curl -o Country-asn.mmdb.sha256sum "https://github.com/Loyalsoldier/geoip/releases/latest/download/Country-asn.mmdb.sha256sum"
 

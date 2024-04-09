@@ -166,14 +166,14 @@ else
 fi
 
 # advancedFeatures.ini
-if [ -f ~/.android/advancedFeatures.ini ]
-then
-	mkdir -p .android
-	cp ~/.android/advancedFeatures.ini ./.android/advancedFeatures.ini
-	printf "advancedFeatures.ini already copy \n"
-else
-	printf "\e[0;31m advancedFeatures.ini no exist \e[0m\n"
-fi
+# if [ -f ~/.android/advancedFeatures.ini ]
+# then
+# 	mkdir -p .android
+# 	cp ~/.android/advancedFeatures.ini ./.android/advancedFeatures.ini
+# 	printf "advancedFeatures.ini already copy \n"
+# else
+# 	printf "\e[0;31m advancedFeatures.ini no exist \e[0m\n"
+# fi
 
 # subladder-mmdb.service
 # if [ -f ~/.config/systemd/user/subladder-mmdb.service ]
